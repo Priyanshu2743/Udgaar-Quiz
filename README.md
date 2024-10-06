@@ -1,4 +1,4 @@
-# Anti-Addiction-Quiz -:
+# UDGAAR-Quiz -:
 <ul>
 <li>Anti-Addiction Quiz webpage for the Udgaar- A Mega Youth Fest organized by Ethiccraft Club.</li>
 <li>This is an online quiz organizing website project, developed using JavaScript.</li>
