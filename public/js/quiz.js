@@ -204,81 +204,83 @@ function handleVisibilityChange() {
     }
 }
 
+// Next Btn 
+nextBtn.addEventListener("click", (displayNext = () => {
+
+    if (questionCount > totalQuestions) {
+        return;
+    }
+    //get user selected option
+    let question =
+        document.getElementsByClassName("container-mid")[questionCount];
+    let options = question.querySelectorAll(".option-div");
+    let userSolution = "";
+    options.forEach((element) => {
+        if (element.classList.contains("selected")) {
+            userSolution = element.innerHTML;
+        }
+    });
+
+    if (userSolution === quizArray[questionCount].correct) {
+        scoreCount++;
+    }
+
+    //increment questionCount
+    questionCount += 1;
+    //if last question
+    if (questionCount == totalQuestions) {
+        //hide question container and display score
+        displayContainer.classList.add("hide");
+        scoreContainer.classList.remove("hide");
+        //user score
+        userScore.innerHTML =
+            "Your score is " + scoreCount + " out of " + questionCount;
+
+        // progress bar
+        let progress = document.getElementsByClassName("progress")[0];
+        progress.style.width = scoreCount / totalQuestions * 100 + "%";
+
+    } else {
+        //display questionCount
+        countOfQuestion.innerHTML =
+            questionCount + 1 + " of " + totalQuestions + " Question";
+        //display quiz
+        quizDisplay(questionCount);
+        count = 31;
+        clearInterval(countdown);
+        timerDisplay();
+    }
+
+    //update score in database
+    const userdata = {
+        UserName: document.getElementById('UserName').value.trim(),
+        Currcount: questionCount,
+        Score: scoreCount
+    }
+    fetch('/update', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify(userdata)
+    })
+        .then(response => {
+            console.log(response);
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}));
+
 // Function to submit the quiz (you may need to adjust this based on your submission logic)
 function submitQuiz() {
     // Here you would place the logic to submit the quiz
     //Next Button
-    nextBtn.addEventListener("click", (displayNext = () => {
-
-        if (questionCount > totalQuestions) {
-            return;
-        }
-        //get user selected option
-        let question =
-            document.getElementsByClassName("container-mid")[questionCount];
-        let options = question.querySelectorAll(".option-div");
-        let userSolution = "";
-        options.forEach((element) => {
-            if (element.classList.contains("selected")) {
-                userSolution = element.innerHTML;
-            }
-        });
-
-        if (userSolution === quizArray[questionCount].correct) {
-            scoreCount++;
-        }
-
-        //increment questionCount
-        questionCount += 1;
-        //if last question
-        if (questionCount == totalQuestions) {
-            //hide question container and display score
-            displayContainer.classList.add("hide");
-            scoreContainer.classList.remove("hide");
-            //user score
-            userScore.innerHTML =
-                "Your score is " + scoreCount + " out of " + questionCount;
-
-            // progress bar
-            let progress = document.getElementsByClassName("progress")[0];
-            progress.style.width = scoreCount / totalQuestions * 100 + "%";
-
-        } else {
-            //display questionCount
-            countOfQuestion.innerHTML =
-                questionCount + 1 + " of " + totalQuestions + " Question";
-            //display quiz
-            quizDisplay(questionCount);
-            count = 31;
-            clearInterval(countdown);
-            timerDisplay();
-        }
-
-        //update score in database
-        const userdata = {
-            UserName: document.getElementById('UserName').value.trim(),
-            Currcount: questionCount,
-            Score: scoreCount
-        }
-        fetch('/update', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-
-            body: JSON.stringify(userdata)
-        })
-            .then(response => {
-                console.log(response);
-            })
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }));
 }
 
 // Add event listener for visibility change
@@ -296,6 +298,7 @@ style.innerHTML = `
             display: flex;
             flex-direction: column;
             gap: 10px;
+            text-align: left;
         }
 
         input[type="checkbox"] {
@@ -359,7 +362,7 @@ window.addEventListener("load", (event) => {
                 <div id="swal-checkboxes">
                     <div>
                         <input type="checkbox" id="q1" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q1">There will be 20 questions.</label>
+                        <label for="q1">There will be 10 questions.</label>
                     </div>
                     <div>
                         <input type="checkbox" id="q2" onclick="toggleStrike(this); checkAllChecked();">
@@ -379,10 +382,10 @@ window.addEventListener("load", (event) => {
                     </div>
                 </div>
             `,
-            confirmButtonText: "<u>Done</u>",
+            confirmButtonText: "<u>Submit</u>",
             confirmButtonColor: "#00b300",
             allowOutsideClick: false,
-            showCancelButton: true,
+            showCancelButton: false,
             cancelButtonText: "Cancel",
             didOpen: () => {
                 const confirmButton = Swal.getConfirmButton();
