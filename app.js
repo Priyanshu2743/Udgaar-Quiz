@@ -66,11 +66,11 @@ app.post("/login", async (req, res) => {
           return res.status(200).json({ UserName: UserName, Currcount: 0, Score: 0 });
         }
         // Participant already submitted the quiz
-        else if (existingUser.Currcount >= 20) {
+        else if (existingUser.Currcount >= 10) {
           return res.status(404).send(JSON.stringify({ message: "You have already given the Quiz" }));
         }
         else {
-          return res.status(420).send(JSON.stringify({UserName: existingUser.UserName, Currcount: 0, Score: existingUser.Score,}));
+          return res.status(420).send(JSON.stringify({UserName: existingUser.UserName, Currcount: existingUser.Currcount, Score: existingUser.Score,}));
         }
       } 
       else {
@@ -108,6 +108,6 @@ app.get("/prizes", function (req, res) {
 });
 
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0' ,() => {
   console.log(`Server started on port ${PORT}`);
 });

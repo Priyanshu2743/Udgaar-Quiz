@@ -37,7 +37,6 @@ function displayImageForDuration(duration) {
 }
 
 // Call the function to display the image for 10 seconds (10000 milliseconds)
-
 document.addEventListener("DOMContentLoaded", function () {
     const UserNameInput = document.getElementById('UserName');
     const PasswordInput = document.getElementById('Password');
@@ -81,7 +80,7 @@ startButton.addEventListener("click", async () => {
     const data = await response.json();
     questionCount = data.Currcount;
     scoreCount = data.Score;
-    
+
     if (response.status === 400) {
         Swal.fire({
             icon: 'info',
@@ -170,8 +169,6 @@ function quizCreator() {
 
 //Checker Function to check if option is correct or not
 function checker(userOption) {
-
-
     let question =
         document.getElementsByClassName("container-mid")[questionCount];
     let options = question.querySelectorAll(".option-div");
@@ -198,79 +195,155 @@ function initial() {
     quizDisplay(questionCount);
 }
 
-//Next Button
-nextBtn.addEventListener("click", (displayNext = () => {
 
-    if (questionCount > totalQuestions) {
-        return;
+// Function to handle tab change and submit quiz
+function handleVisibilityChange() {
+    if (document.hidden) {
+        // Call your function to submit the quiz
+        submitQuiz();
     }
-    //get user selected option
-    let question =
-        document.getElementsByClassName("container-mid")[questionCount];
-    let options = question.querySelectorAll(".option-div");
-    let userSolution = "";
-    options.forEach((element) => {
-        if (element.classList.contains("selected")) {
-            userSolution = element.innerHTML;
+}
+
+// Function to submit the quiz (you may need to adjust this based on your submission logic)
+function submitQuiz() {
+    // Here you would place the logic to submit the quiz
+    //Next Button
+    nextBtn.addEventListener("click", (displayNext = () => {
+
+        if (questionCount > totalQuestions) {
+            return;
         }
-    });
-
-    if (userSolution === quizArray[questionCount].correct) {
-        scoreCount++;
-    }
-
-    //increment questionCount
-    questionCount += 1;
-    //if last question
-    if (questionCount == totalQuestions) {
-        //hide question container and display score
-        displayContainer.classList.add("hide");
-        scoreContainer.classList.remove("hide");
-        //user score
-        userScore.innerHTML =
-            "Your score is " + scoreCount + " out of " + questionCount;
-
-        // progress bar
-        let progress = document.getElementsByClassName("progress")[0];
-        progress.style.width = scoreCount / totalQuestions * 100 + "%";
-
-    } else {
-        //display questionCount
-        countOfQuestion.innerHTML =
-            questionCount + 1 + " of " + totalQuestions + " Question";
-        //display quiz
-        quizDisplay(questionCount);
-        count = 31;
-        clearInterval(countdown);
-        timerDisplay();
-    }
-
-    //update score in database
-    const userdata = {
-        UserName: document.getElementById('UserName').value.trim(),
-        Currcount: questionCount,
-        Score: scoreCount
-    }
-    fetch('/update', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-
-        body: JSON.stringify(userdata)
-    })
-        .then(response => {
-            console.log(response);
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.log(error);
+        //get user selected option
+        let question =
+            document.getElementsByClassName("container-mid")[questionCount];
+        let options = question.querySelectorAll(".option-div");
+        let userSolution = "";
+        options.forEach((element) => {
+            if (element.classList.contains("selected")) {
+                userSolution = element.innerHTML;
+            }
         });
-}));
 
+        if (userSolution === quizArray[questionCount].correct) {
+            scoreCount++;
+        }
+
+        //increment questionCount
+        questionCount += 1;
+        //if last question
+        if (questionCount == totalQuestions) {
+            //hide question container and display score
+            displayContainer.classList.add("hide");
+            scoreContainer.classList.remove("hide");
+            //user score
+            userScore.innerHTML =
+                "Your score is " + scoreCount + " out of " + questionCount;
+
+            // progress bar
+            let progress = document.getElementsByClassName("progress")[0];
+            progress.style.width = scoreCount / totalQuestions * 100 + "%";
+
+        } else {
+            //display questionCount
+            countOfQuestion.innerHTML =
+                questionCount + 1 + " of " + totalQuestions + " Question";
+            //display quiz
+            quizDisplay(questionCount);
+            count = 31;
+            clearInterval(countdown);
+            timerDisplay();
+        }
+
+        //update score in database
+        const userdata = {
+            UserName: document.getElementById('UserName').value.trim(),
+            Currcount: questionCount,
+            Score: scoreCount
+        }
+        fetch('/update', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(userdata)
+        })
+            .then(response => {
+                console.log(response);
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }));
+}
+
+// Add event listener for visibility change
+document.addEventListener('visibilitychange', handleVisibilityChange);
+
+// Adding CSS for strike-through style
+const style = document.createElement('style');
+style.innerHTML = `
+     .strikethrough {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        #swal-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="checkbox"] {
+            display: none; /* Hide the default checkbox */
+        }
+
+        label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 16px;
+        }
+
+        label:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00b300; /* Checkbox border color */
+            border-radius: 3px; /* Rounded corners */
+            background: white; /* Background color */
+            transition: background 0.3s, border 0.3s; /* Transition for background and border */
+        }
+
+        input[type="checkbox"]:checked + label:before {
+            background: #00b300; /* Checked background color */
+            border-color: #00b300; /* Checked border color */
+        }
+
+        input[type="checkbox"]:checked + label:after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 10px;
+            width: 8px;
+            height: 4px;
+            border: solid white; /* Checkmark color */
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg); /* Rotate to form a checkmark */
+        }
+`;
+document.head.appendChild(style);
+
+// SweetAlert initialization
 window.addEventListener("load", (event) => {
     displayImageForDuration(1000);
     var date = new Date();
@@ -279,14 +352,61 @@ window.addEventListener("load", (event) => {
             icon: "info",
             html: `<b>Thank you</b> for participating in Gita quiz <br>For <b>results</b>, refer to : <div style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;"><a href="https://www.instagram.com/ethiccraft_ymca/"><i class="fab fa-instagram fa-3x" style="color: rgb(212, 43, 212)"></i></a> <a href="https://chat.whatsapp.com/DQKhsidjLyM2SQ26MEaFHT"><i class="fab fa-whatsapp fa-3x" style="color: green"></i></a> </div> @December, 26`,
         });
-    }
-    else {
+    } else {
         Swal.fire({
             title: "<i>Please Read Carefully</i>",
-            html: "1. There will be 20 questions.<br>2. Each question will have 4 options.<br>3. You have 30 seconds to answer each question.<br>4. After submitting please join the whatsapp group!<br>5. <b>Do not refresh the page</b>",
+            html: `
+                <div id="swal-checkboxes">
+                    <div>
+                        <input type="checkbox" id="q1" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q1">There will be 20 questions.</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q2" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q2">Each question will have 4 options.</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q3" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q3">You have 30 seconds to answer each question.</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q4" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q4">After submitting please join the WhatsApp group!</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q5"><b>Do not refresh the page</b></label>
+                    </div>
+                </div>
+            `,
             confirmButtonText: "<u>Done</u>",
             confirmButtonColor: "#00b300",
             allowOutsideClick: false,
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+            didOpen: () => {
+                const confirmButton = Swal.getConfirmButton();
+                confirmButton.disabled = true; // Initially disable the button
+            }
         });
     }
 });
+
+// Function to toggle strike-through style
+function toggleStrike(checkbox) {
+    const label = checkbox.nextElementSibling; // Get the label associated with the checkbox
+    if (checkbox.checked) {
+        label.classList.add('strikethrough'); // Add strike-through class
+    } else {
+        label.classList.remove('strikethrough'); // Remove strike-through class
+    }
+}
+
+// Function to check if all checkboxes are checked
+function checkAllChecked() {
+    const checkboxes = document.querySelectorAll("#swal-checkboxes input[type='checkbox']");
+    const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    const confirmButton = Swal.getConfirmButton();
+    confirmButton.disabled = !allChecked; // Enable if all are checked
+}
+

@@ -22,6 +22,21 @@
   <link rel="shortcut icon" href="images/clipboard.ico" type="image/x-icon" />
   <style>
     /* Custom styles */
+    #rotate-message {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      z-index: 9999; /* Ensures it appears on top */
+    }  
     /* ... Your existing CSS here ... */
   </style>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -44,6 +59,15 @@
           loop autoplay></lottie-player></span>
     </div>
   </nav>
+
+  <div id="rotate-message" class="hide">
+    <div class="message-content">
+        <p>Please rotate your device to view this app in portrait mode.</p>
+        <!-- Optionally, you can add a video or animation here -->
+        <!-- <video src="path_to_video.mp4" autoplay muted loop></video> -->
+    </div>
+  </div>
+
 
   <div class="container-fluid">
     <div class="landingpage">
@@ -182,6 +206,22 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function checkOrientation() {
+        const rotateMessage = document.getElementById('rotate-message');
+        if (window.innerWidth > window.innerHeight) {
+            rotateMessage.style.display = 'flex'; // Show message
+        } else {
+            rotateMessage.style.display = 'none'; // Hide message
+        }
+    }
+
+    window.addEventListener('resize', checkOrientation);
+    window.addEventListener('orientationchange', checkOrientation);
+
+    // Initial check
+    checkOrientation();
+  </script>
   <script src="js/quiz.js"></script>
   <script src="js/quizArray.js"></script>
 </body>
