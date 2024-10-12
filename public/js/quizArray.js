@@ -1,7 +1,6 @@
 //Questions and Options array
-const quizArray = 
-[
-    {
+const quizArray = [
+      {
         "id": "1",
         "question": "Which character in the book represents the victim of addiction? (पुस्तक में कौन सा पात्र नशे की लत के शिकार का प्रतिनिधित्व करता है?)",
         "options": [
@@ -110,7 +109,7 @@ const quizArray =
           "Mr. Srivastava (श्री श्रीवास्तव)"
         ],
         "correct": "Tanmay (तन्मय)"
-      }
+      },
       {
         "id": "11",
         "question": "What action did Ankit's sister Aarya take to help Tanmay? (अंकित की बहन आर्या ने तन्मय की मदद के लिए क्या कदम उठाया?)",
@@ -220,7 +219,7 @@ const quizArray =
           "Moving to another city (दूसरे शहर में जाना)"
         ],
         "correct": "Coping with grief and alcoholism (दुख और शराब की लत से निपटना)"
-      }
+      },
       {
         "id": "21",
         "question": "What is the role of media in promoting addiction according to the book? (पुस्तक के अनुसार नशे की लत को बढ़ावा देने में मीडिया की क्या भूमिका है?)",
@@ -330,7 +329,7 @@ const quizArray =
           "Independence is the key to success (स्वतंत्रता सफलता की कुंजी है)"
         ],
         "correct": "Addiction can be overcome with community support (समुदाय के सहयोग से नशे की लत पर काबू पाया जा सकता है)"
-      }
+      },
       {
         "id": "31",
         "question": "What did Ankit’s father do for a living? (अंकित के पिता जीविका के लिए क्या करते थे?)",
@@ -440,7 +439,7 @@ const quizArray =
           "By taking medication (दवाएँ लेकर)"
         ],
         "correct": "By joining a support group and following the 12-step program (सहायता समूह में शामिल होकर और 12-चरणीय कार्यक्रम का पालन करके)"
-      }
+      },
       {
         "id": "41",
         "question": "What did the 'mission impossible' mentioned by Ankit refer to? (अंकित द्वारा उल्लिखित 'मिशन इम्पॉसिबल' का क्या मतलब था?)",
@@ -550,7 +549,7 @@ const quizArray =
           "Is war necessary for peace? (क्या शांति के लिए युद्ध आवश्यक है?)"
         ],
         "correct": "Can morality exist without an absolute standard? (क्या नैतिकता निरपेक्ष मानक के बिना मौजूद हो सकती है?)"
-      }
+      },
       {
         "id": "51",
         "question": "What is a common reason for individuals to start using drugs? (व्यक्तियों द्वारा नशीली दवाओं का उपयोग शुरू करने का एक सामान्य कारण क्या है?)",
@@ -660,7 +659,7 @@ const quizArray =
           "It guarantees career success (यह करियर की सफलता की गारंटी देता है)"
         ],
         "correct": "It often leads to poor academic performance and job loss (यह अक्सर खराब शैक्षणिक प्रदर्शन और नौकरी के नुकसान का कारण बनता है)"
-      }
+      },
       {
         "id": "61",
         "question": "Which of the following is a common legal consequence of drug abuse? (नशीली दवाओं के दुरुपयोग का एक सामान्य कानूनी परिणाम क्या है?)",
@@ -770,7 +769,7 @@ const quizArray =
           "It enhances physical attractiveness (यह शारीरिक आकर्षण को बढ़ाता है)"
         ],
         "correct": "It can lead to significant physical changes such as weight loss, dental problems, and skin issues (यह वजन घटाने, दांतों की समस्याओं और त्वचा के मुद्दों जैसे महत्वपूर्ण शारीरिक परिवर्तनों का कारण बन सकता है)"
-      }
+      },
       {
         "id": "80",
         "question": "How does the concept of 'self-medication' relate to the cause of addiction? (स्व-संज्ञान की अवधारणा नशे की लत के कारण से कैसे संबंधित है?)",
@@ -781,7 +780,7 @@ const quizArray =
           "It discourages drug use (यह नशीली दवाओं के उपयोग को हतोत्साहित करता है)"
         ],
         "correct": "It suggests that people use substances or addictive behaviours to intentionally treat symptoms of mental health issues like depression or anxiety (यह सुझाव देता है कि लोग नशीली दवाओं या नशे की लत वाले व्यवहारों का उपयोग करते हैं ताकि जानबूझकर मानसिक स्वास्थ्य समस्याओं जैसे अवसाद या चिंता के लक्षणों का इलाज किया जा सके)"
-      }
+      },
       {
         "id": "81",
         "question": "Which of the following is an environmental factor that can contribute to the development of addiction? (नशे की लत के विकास में योगदान देने वाला एक पर्यावरणीय कारक कौन सा है?)",
@@ -869,7 +868,7 @@ const quizArray =
           "It has no impact on his addiction (इसका उसकी नशे की लत पर कोई प्रभाव नहीं है)"
         ],
         "correct": "The absence of adequate emotional support from his family and peers makes him more prone to seeking solace in drugs (परिवार और दोस्तों से उचित भावनात्मक समर्थन की कमी उसे नशीली दवाओं में शांति खोजने के लिए और अधिक प्रवृत्त बनाती है)"
-      }
+      },
       {
         "id": "89",
         "question": "How can 'behavioural conditioning' contribute to addiction? (व्यवहारिक कंडीशनिंग नशे की लत में कैसे योगदान कर सकता है?)",
@@ -891,7 +890,7 @@ const quizArray =
           "They only affect physical health (वे केवल शारीरिक स्वास्थ्य को प्रभावित करते हैं)"
         ],
         "correct": "They significantly increase the risk of developing addiction later in life due to trauma, neglect, or abuse during critical developmental periods (वे महत्वपूर्ण विकासात्मक चरणों के दौरान आघात, उपेक्षा या दुरुपयोग के कारण बाद में जीवन में नशे की लत विकसित करने के जोखिम को महत्वपूर्ण रूप से बढ़ाते हैं)"
-      }
+      },
       {
         "id": "91",
         "question": "How does the availability and accessibility of substances contribute to addiction? (सुविधा और पदार्थों की पहुंच नशे की लत में कैसे योगदान करती है?)",
@@ -979,7 +978,7 @@ const quizArray =
           "She thinks that family problems are the sole cause of addiction (वह सोचती है कि पारिवारिक समस्याएँ नशे की लत का एकमात्र कारण हैं)"
         ],
         "correct": "She understands that addiction can happen to anyone, regardless of their background (वह समझती है कि नशे की लत किसी के साथ भी हो सकती है, चाहे उनकी पृष्ठभूमि कुछ भी हो)"
-      }
+      },
       {
         "id": "99",
         "question": "What significant insight does Aarya gain about her brother Ankit’s struggles? (आर्या अपने भाई अंकित के संघर्षों के बारे में कौन-सी महत्वपूर्ण समझ प्राप्त करती है?)",
@@ -1001,7 +1000,7 @@ const quizArray =
           "That addiction leads to success (कि नशे की लत सफलता की ओर ले जाती है)"
         ],
         "correct": "That understanding and support are crucial for overcoming addiction (कि समझ और समर्थन नशे की लत पर काबू पाने के लिए महत्वपूर्ण हैं)"
-      }
+      },
       {
         "id": "101",
         "question": "What is one of the main challenges faced by individuals in recovery from addiction? (नशे की लत से उबरने वाले व्यक्तियों द्वारा सामना की जाने वाली एक प्रमुख चुनौती क्या है?)",
@@ -1111,7 +1110,7 @@ const quizArray =
           "Recovery is only about quitting substances (पुनर्प्राप्ति केवल नशीली दवाओं को छोड़ने के बारे में है)"
         ],
         "correct": "Recovery is possible, but it requires time, effort, and support from others (पुनर्प्राप्ति संभव है, लेकिन इसके लिए समय, प्रयास और दूसरों का समर्थन आवश्यक है)"
-      }
+      },
       {
         "id": "111",
         "question": "What role does mindfulness play in the recovery process from addiction? (नशे की लत से उबरने की प्रक्रिया में ध्यान की क्या भूमिका होती है?)",
@@ -1221,7 +1220,7 @@ const quizArray =
           "Personal growth is unrelated to recovery (व्यक्तिगत विकास का पुनर्प्राप्ति से कोई संबंध नहीं है)"
         ],
         "correct": "Overcoming addiction can lead to significant personal growth and self-discovery (नशे की लत पर काबू पाने से महत्वपूर्ण व्यक्तिगत विकास और आत्म-खोज हो सकती है)"
-      }
+      },
       {
         "id": "128",
         "question": "How can setting boundaries help individuals recovering from addiction? (सीमाएँ निर्धारित करना नशे की लत से उबरने वाले व्यक्तियों की कैसे मदद कर सकता है?)",
@@ -1254,7 +1253,7 @@ const quizArray =
           "It is only about physical health (यह केवल शारीरिक स्वास्थ्य के बारे में है)"
         ],
         "correct": "Self-care practices can enhance physical and emotional well-being, helping individuals to cope better and reduce the risk of relapse (आत्म-देखभाल के अभ्यास शारीरिक और भावनात्मक कल्याण को बढ़ा सकते हैं, व्यक्तियों को बेहतर ढंग से मुकाबला करने और पुनरावृत्ति के जोखिम को कम करने में मदद कर सकते हैं)"
-      }
+      },
       {
         "id": "131",
         "question": "What does the term 'addiction recovery' encompass? (नशे की लत की पुनर्प्राप्ति की अवधारणा में क्या शामिल है?)",
@@ -1364,7 +1363,7 @@ const quizArray =
           "It only focuses on financial aspects of recovery (यह केवल पुनर्प्राप्ति के वित्तीय पहलुओं पर ध्यान केंद्रित करती है)"
         ],
         "correct": "Accountability helps individuals stay committed to their recovery goals and encourages them to take responsibility for their actions (जवाबदेही व्यक्तियों को उनकी पुनर्प्राप्ति के लक्ष्यों के प्रति प्रतिबद्ध रहने में मदद करती है और उन्हें अपने कार्यों के लिए जिम्मेदारी लेने के लिए प्रोत्साहित करती है)"
-      }
+      },
       {
         "id": "141",
         "question": "What is the significance of understanding one's personal triggers in the context of addiction recovery? (नशे की लत की पुनर्प्राप्ति के संदर्भ में अपने व्यक्तिगत ट्रिगर्स को समझने का क्या महत्व है?)",
