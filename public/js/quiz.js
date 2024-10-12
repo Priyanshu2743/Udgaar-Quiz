@@ -383,20 +383,20 @@ window.addEventListener("load", (event) => {
                         <label for="q5"> Participants must log in with their registered email ID as their username and registered mobile number as password. </label>
                     </div>
                     <div>
-                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q5">The quiz will be conducted in both English and Hindi. </label>
+                        <input type="checkbox" id="q6" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q6">The quiz will be conducted in both English and Hindi. </label>
                     </div>
                     <div>
-                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q5"> The quiz consists of 50 questions, each timed at 30 seconds. </label>
+                        <input type="checkbox" id="q7" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q7"> The quiz consists of 50 questions, each timed at 30 seconds. </label>
                     </div>
                     <div>
-                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q5"> Do not refresh the page or try to change the tab, as this will result in auto-submission of the quiz, which will be considered final. </label>
+                        <input type="checkbox" id="q8" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q8"> Do not refresh the page or try to change the tab, as this will result in auto-submission of the quiz, which will be considered final. </label>
                     </div>
                     <div>
-                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q5"><b> By participating, I accept all terms and conditions and acknowledge that decisions made by management are final. </b></label>
+                        <input type="checkbox" id="q9" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q9"><b> By participating, I accept all terms and conditions and acknowledge that decisions made by management are final. </b></label>
                     </div>
                 </div>
             `,
