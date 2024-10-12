@@ -364,23 +364,39 @@ window.addEventListener("load", (event) => {
                 <div id="swal-checkboxes">
                     <div>
                         <input type="checkbox" id="q1" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q1">There will be 50 questions.</label>
+                        <label for="q1">The quiz link will be shared on respective WhatsApp groups.</label>
                     </div>
                     <div>
                         <input type="checkbox" id="q2" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q2">Each question will have 4 options.</label>
+                        <label for="q2">Date: 13th October.</label>
                     </div>
                     <div>
                         <input type="checkbox" id="q3" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q3">You have 30 seconds to answer each question.</label>
+                        <label for="q3">Time: 11:00 AM - 5:00 PM.</label>
                     </div>
                     <div>
                         <input type="checkbox" id="q4" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q4">After submitting please join the WhatsApp group!</label>
+                        <label for="q4"> The portal will remain open between 11:00 AM and 5:00 PM. Participants can log in at any time. </label>
                     </div>
                     <div>
                         <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q5"><b> Do not refresh the page or try to change the tab </b></label>
+                        <label for="q5"> Participants must log in with their registered email ID as their username and registered mobile number as password. </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q5">The quiz will be conducted in both English and Hindi. </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q5"> The quiz consists of 50 questions, each timed at 30 seconds. </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q5"> Do not refresh the page or try to change the tab, as this will result in auto-submission of the quiz, which will be considered final. </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q5"><b> By participating, I accept all terms and conditions and acknowledge that decisions made by management are final. </b></label>
                     </div>
                 </div>
             `,
