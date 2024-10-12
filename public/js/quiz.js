@@ -10,7 +10,7 @@ let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 let startImage = document.getElementById("start-image");
 let questionCount;
-let totalQuestions = 10;
+let totalQuestions = 50;
 let scoreCount = 0;
 let count = 31;
 let countdown;
@@ -150,13 +150,16 @@ function quizCreator() {
         //quiz card creation
         let div = document.createElement("div");
         div.classList.add("container-mid", "hide");
+        
         //question number
         countOfQuestion.innerHTML = (questionCount + 1) + " of " + totalQuestions + " Question";
+        
         //question
         let question_DIV = document.createElement("p");
         question_DIV.classList.add("question");
         question_DIV.innerHTML = i.question;
         div.appendChild(question_DIV);
+        
         //options
         div.innerHTML += `
         <button class="option-div" onclick="checker(this)">${i.options[0]}</button>
@@ -180,7 +183,6 @@ function checker(userOption) {
     //if user clicked answer == correct option stored in object
 
     nextBtn.disabled = false;
-
 }
 
 //initial setup
@@ -362,7 +364,7 @@ window.addEventListener("load", (event) => {
                 <div id="swal-checkboxes">
                     <div>
                         <input type="checkbox" id="q1" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q1">There will be 10 questions.</label>
+                        <label for="q1">There will be 50 questions.</label>
                     </div>
                     <div>
                         <input type="checkbox" id="q2" onclick="toggleStrike(this); checkAllChecked();">
@@ -378,7 +380,7 @@ window.addEventListener("load", (event) => {
                     </div>
                     <div>
                         <input type="checkbox" id="q5" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q5"><b>Do not refresh the page</b></label>
+                        <label for="q5"><b> Do not refresh the page or try to change the tab </b></label>
                     </div>
                 </div>
             `,
