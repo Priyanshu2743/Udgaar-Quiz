@@ -33,7 +33,7 @@ function displayImageForDuration(duration) {
         landingPage.style.display = "none";
         // Show the quiz content after hiding the image
         let date = new Date();
-        if (date.getHours() > 23) {
+        if (date.getHours() < 23) {
         }
         else {
             // document.querySelector(".prize-button").classList.remove("hide");
@@ -364,10 +364,10 @@ document.head.appendChild(style);
 window.addEventListener("load", (event) => {
     displayImageForDuration(1000);
     var date = new Date();
-    if (date.getHours() > 23) {
+    if (date.getHours() < 23) {
         Swal.fire({
             icon: "info",
-            html: `<b>Thank you</b> for participating in Gita quiz <br>For <b>results</b>, refer to : <div style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;"><a href="https://www.instagram.com/ethiccraft_ymca/"><i class="fab fa-instagram fa-3x" style="color: rgb(212, 43, 212)"></i></a> <a href="https://chat.whatsapp.com/DQKhsidjLyM2SQ26MEaFHT"><i class="fab fa-whatsapp fa-3x" style="color: green"></i></a> </div> @December, 26`,
+            html: `<b>Thank you</b> for participating in Gita quiz <br>For <b>results</b>, refer to : <div style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;"><a href="https://www.instagram.com/ethiccraft_ymca/"><i class="fab fa-instagram fa-3x" style="color: rgb(212, 43, 212)"></i></a> <a href="https://chat.whatsapp.com/C9XQYKKbL9A06CL91nRxgs"><i class="fab fa-whatsapp fa-3x" style="color: green"></i></a> </div> @December, 26`,
         });
     } else {
         Swal.fire({
