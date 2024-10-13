@@ -22,6 +22,7 @@ const ParticipantSchema = new mongoose.Schema({
   Password: { type: String, required: true },
   Currcount: Number,
   Score: Number,
+  TimeTaken: Number,
 });
 
 // Method to compare the password
@@ -86,12 +87,13 @@ app.post("/login", async (req, res) => {
 });
 
 app.post('/update', (req, res) => {
-  const { UserName, Currcount, Score } = req.body;
+  const { UserName, Currcount, Score, TimeTaken } = req.body;
   User.findOne({ UserName: UserName }).then(existingUser => {
       if (existingUser) {
           console.log(existingUser.Score);
           existingUser.Currcount = Currcount;
           existingUser.Score = Score;
+          existingUser.TimeTaken = TimeTaken;
           existingUser.save();
           return res.status(200).json({ UserName: UserName, Currcount: Currcount, Score: Score });
       }

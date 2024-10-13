@@ -14,7 +14,13 @@ let totalQuestions = 50;
 let scoreCount = 0;
 let count = 31;
 let countdown;
+let startTime;
+let endTime;
 
+
+window.onload = () => {
+    startTime = new Date().getTime();
+};
 
 // Function to display image for a specific duration
 function displayImageForDuration(duration) {
@@ -253,11 +259,17 @@ nextBtn.addEventListener("click", (displayNext = () => {
         timerDisplay();
     }
 
+    // End time
+    endTime = new Date().getTime();
+    const timeTaken = Math.floor((endTime - startTime) / 1000); // Time in seconds
+ 
+
     //update score in database
     const userdata = {
         UserName: document.getElementById('UserName').value.trim(),
         Currcount: questionCount,
-        Score: scoreCount
+        Score: scoreCount,
+        TimeTaken: timeTaken 
     }
     fetch('/update', {
         method: 'POST',
@@ -282,7 +294,7 @@ nextBtn.addEventListener("click", (displayNext = () => {
 // Function to submit the quiz (you may need to adjust this based on your submission logic)
 function submitQuiz() {
     // Here you would place the logic to submit the quiz
-    //Next Button
+    // Next Button
 }
 
 // Add event listener for visibility change
