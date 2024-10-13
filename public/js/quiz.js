@@ -396,7 +396,11 @@ window.addEventListener("load", (event) => {
                     </div>
                     <div>
                         <input type="checkbox" id="q9" onclick="toggleStrike(this); checkAllChecked();">
-                        <label for="q9"><b> By participating, I accept all terms and conditions and acknowledge that decisions made by management are final. </b></label>
+                        <label for="q9"> Quiz link will work only on mobile phone. </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="q10" onclick="toggleStrike(this); checkAllChecked();">
+                        <label for="q10"><b> By participating, I accept all terms and conditions and acknowledge that decisions made by management are final. </b></label>
                     </div>
                 </div>
             `,
